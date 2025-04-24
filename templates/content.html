@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Video Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .menu-bar {
+            width: 100%;
+            background-color: #2c3e50;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+        .menu-bar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .collapsible {
+            background-color: #46627f;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            position: relative;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            text-align: left;
+            right: 0;
+            top: 100%;
+        }
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column; /* Changed to column to stack content vertically */
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .content {
+            width: 90%;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex; 
+        }
+        .video-container {
+            flex: 2;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-container iframe {
+            width: 100%; 
+            aspect-ratio: 16/9; 
+            max-height: 100%; 
+            object-fit: cover; 
+        }
+        .quiz-panel {
+            flex: 1;
+            padding: 20px;
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .quiz-panel button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .quiz-panel button:hover {
+            background-color: #0056b3;
+        }
+        .control-buttons {
+            margin-top: 20px;
+            display: flex; /* Flex to align buttons horizontally */
+            justify-content: center; /* Center buttons */
+            width: 100%; /* Full width of content */
+        }
+        .arrow-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 2em;
+            color: #333;
+            transition: color 0.3s;
+            margin: 0 10px; /* Space between buttons */
+        }
+        .arrow-button:hover {
+            color: #007BFF;
+        }
+        a.back-link {
+            margin-top: 20px;
+            align-self: center; 
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 500px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="menu-bar">
+    <div class="logo">LMS</div>
+    <div class="menu-toggle">
+        <button class="collapsible">Menu</button>
+        <div class="menu-content">
+            <a href="{{ url_for( 'profile' ) }}">Profile</a>
+            <a href="{{ url_for( 'leaderboard' ) }}">Leaderboard</a>
+            <a href="{{ url_for( 'menu' ) }}">Menu</a>
+            {% if admin==1 %}
+            <a href={{ url_for( 'admin' ) }}>Admin</a>
+            {% endif %}
+            <a href="{{ url_for( 'logout' ) }}">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div id="main-content" class="main-content" sid={{ data.sid}}>
+    <div class="content">
+        <div class="video-container">
+            <iframe id="iframe_video" src="{{ data.video }}" title="Sample Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="quiz-panel">
+            <h2 id="quiz_question">{{ data.question }}</h2>
+            <button id="a1" onclick="handleAnswer('a1')">{{ data.a1 }}</button>
+            <button id="a2" onclick="handleAnswer('a2')">{{ data.a2 }}</button>
+            <button id="a3" onclick="handleAnswer('a3')">{{ data.a3 }}</button>
+            <button id="a4" onclick="handleAnswer('a4')">{{ data.a4 }}</button>
+        </div>
+    </div>
+
+    <div class="control-buttons">
+        <button class="arrow-button" name="decrement" value="decrement" onclick="navigateBack()">◀</button>
+        <button class="arrow-button" name="increment" value="increment" onclick="navigateForward()">▶</button>
+    </div>
+
+</div>
+
+<script>
+function handleAnswer(answer) {
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "{{ url_for('evaluate_answer') }}");
+	xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+	const body = JSON.stringify({ 
+		answer: answer, 
+		fromJavascript: 1,
+	});
+	xhr.onload = () => {
+		var result = {};
+		if (xhr.readyState == 4 && xhr.status == 201) {
+			result = JSON.parse(xhr.responseText);
+			console.log(result);
+			
+		} else {
+			result = JSON.parse(xhr.responseText);
+			console.log(`Error: ${xhr.status}`);
+			console.log(result);
+		}
+
+		if ( result.answer ) {
+			alert( "Correct!" );
+			navigateForward();
+		}
+		else {
+			alert( "Try Again!" );
+		}
+	};
+	xhr.send(body);
+}
+
+function navigateBack() {
+	console.log( "back" );
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "{{ url_for('content') }}");
+	xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+	const body = JSON.stringify({
+		decrement: "decrement",
+		fromJavascript: 1,
+	});
+	xhr.onload = () => {
+		var result = {};
+		if (xhr.readyState == 4 && xhr.status == 201) {
+			result = JSON.parse(xhr.responseText);
+			console.log(result);
+		} else {
+			result = JSON.parse(xhr.responseText);
+			console.log(`Error: ${xhr.status}`);
+			console.log(result);
+		}
+		renderContent( result );
+	};
+	xhr.send(body);
+    }
+
+function navigateForward() {
+	console.log( "forward" );
+
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "{{ url_for('content') }}");
+	xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+	const body = JSON.stringify({
+		increment: "increment",
+		fromJavascript: 1,
+	});
+	xhr.onload = () => {
+		var result = {};
+		if (xhr.readyState == 4 && xhr.status == 201) {
+			result = JSON.parse(xhr.responseText);
+			console.log(result);
+		} else {
+			result = JSON.parse(xhr.responseText);
+			console.log(`Error: ${xhr.status}`);
+			console.log(result);
+		}
+		renderContent( result );
+	};
+	xhr.send(body);
+    }
+
+function renderContent( content ) {
+	console.log( content );
+	var main_content = document.getElementById("main-content");
+	if ( main_content.sid == content.sid ) {
+		const conclusion_images = [ "module_conclusion_1.jpg", "module_conclusion_2.jpg", "module_conclusion_3.jpg", "module_conclusion_4.jpg", "module_conclusion_5.jpg", ];
+		const random = Math.floor(Math.random() * conclusion_images.length);
+		const conclusion_image = conclusion_images[ random ];
+		main_content.innerHTML = `
+
+			<div class="container">
+			<h1>Module Concluded!</h1>
+			<img src="/static/${conclusion_image}" alt="End Graphic">
+
+			<form action="/leaderboard">
+			    <button type="submit">View Leaderboard</button>
+			</form>
+			<form action="/menu">
+			    <button type="submit">Course Menu</button>
+			</form>
+
+			</div>
+		`;
+
+	} else {
+		main_content.sid = content.sid;
+
+		var video = document.getElementById("iframe_video");
+		video.src = content.video;
+
+		var q = document.getElementById("quiz_question");
+		q.innerHTML = content.question
+
+		var a1 = document.getElementById("a1");
+		a1.innerHTML = content.a1
+
+		var a2 = document.getElementById("a2");
+		a2.innerHTML = content.a2
+
+		var a3 = document.getElementById("a3");
+		a3.innerHTML = content.a3
+
+		var a4 = document.getElementById("a4");
+		a4.innerHTML = content.a4
+	}
+}
+
+// JavaScript for the collapsible menu
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+	coll[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var content = this.nextElementSibling;
+		if (content.style.display === "block") {
+			content.style.display = "none";
+		} else {
+			content.style.display = "block";
+		}
+	});
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+[
+	{ 
+		"id" : 0, 
+		"name" : "How to be Awesome", 
+		"description" : "",
+		"content" :
+		[
+			[
+				{ 
+					"sid" : 0,
+					"video" : "https://www.youtube.com/embed/a-ixntLruNs", 
+					"question" : "Which blue city sucks the worst", 
+					"a1" : "L.A.", 
+					"a2" : "San Francisco", 
+					"a3" : "Colorado", 
+					"a4" : "All of the above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 1,
+					"video" : "https://www.youtube.com/embed/AK-AjJzr2Z4", 
+					"question" : "What brand of diaper does Biden use", 
+					"a1" : "Pampers", 
+					"a2" : "Huggies", 
+					"a3" : "lol he just shits himself", 
+					"a4" : "All of the Above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 2,
+					"video" : "https://www.youtube.com/embed/UcwfEMdV-aM", 
+					"question" : "What is the most ridiculous lefist lie", 
+					"a1" : "Climate change", 
+					"a2" : "DEI", 
+					"a3" : "ESG", 
+					"a4" : "All of the above", 
+					"a" : "a4" 
+				}
+			]
+		]
+	},
+	{ 
+		"id" : 1, 
+		"name" : "Not Being a Pussy 101", 
+		"description" : "", 
+		"content" :
+		[
+			[
+				{ 
+					"sid" : 0,
+					"video" : "https://www.youtube.com/embed/D-UmfqFjpl0", 
+					"question" : "Trans women are", 
+					"a1" : "Biological women", 
+					"a2" : "Beautiful snowflakes", 
+					"a3" : "Never wrong and they can do whatever they want", 
+					"a4" : "None of the above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 1,
+					"video" : "https://www.youtube.com/embed/vgBjLyXqMAo", 
+					"question" : "Men should be allowed to use the womens' restroom", 
+					"a1" : "Whenever they want", 
+					"a2" : "When they feel girly", 
+					"a3" : "If they have their clown makeup on", 
+					"a4" : "None of the Above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 2,
+					"video" : "https://www.youtube.com/embed/umvgwXINJBE", 
+					"question" : "An old fashioned is", 
+					"a1" : "A sexual position", 
+					"a2" : "The best damn drink ever", 
+					"a3" : "Snowflake melting awesomeness", 
+					"a4" : "B and C", 
+					"a" : "a4" 
+				}
+			]
+		]	
+	},
+	{ 
+		"id" : 2, 
+		"name" : "Chad Lessons", 
+		"description" : "",
+		"content" :
+		[
+			[
+				{ 
+					"sid" : 0,
+					"video" : "https://www.youtube.com/embed/T1QyDhLj5hU", 
+					"question" : "Men should be allowed to play in women's sports", 
+					"a1" : "Whenever they want", 
+					"a2" : "When they feel girly", 
+					"a3" : "If they have their clown makeup on", 
+					"a4" : "None of the Above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 1,
+					"video" : "https://www.youtube.com/embed/1S2nuZsBz8g", 
+					"question" : "Pedophiles should be", 
+					"a1" : "Put feet first into a wood chipper", 
+					"a2" : "Exhaulted as heroes", 
+					"a3" : "Allowed to teach kindergarteners", 
+					"a4" : "It's MAP you bigot!", 
+					"a" : "a1" 
+				},
+				{ 
+					"sid" : 2,
+					"video" : "https://www.youtube.com/embed/9AbnbQTTgQs", 
+					"question" : "Illegal immigrants", 
+					"a1" : "Need to be deported immediately", 
+					"a2" : "Are God's perfect little angels", 
+					"a3" : "No human is illegal you bigot!", 
+					"a4" : "None of the above", 
+					"a" : "a1" 
+				}
+			]
+		]
+		
+	},
+	{ 
+		"id" : 3, 
+		"name" : "Avoiding Human Feces in the Streets of Blue Cities", 
+		"description" : "",
+		"content" :
+		[
+			[
+				{ 
+					"sid" : 0,
+					"video" : "https://www.youtube.com/embed/o7da2p8fr6I", 
+					"question" : "The correct pronouns are", 
+					"a1" : "Xim/Xer", 
+					"a2" : "Xe/Hir", 
+					"a3" : "Fuck/You", 
+					"a4" : "None of the above", 
+					"a" : "a3" 
+				},
+				{ 
+					"sid" : 1,
+					"video" : "https://www.youtube.com/embed/KJwMbdeM_CY", 
+					"question" : "Strong borders are", 
+					"a1" : "Necessary for a healthy nation", 
+					"a2" : "Racist", 
+					"a3" : "Triggering", 
+					"a4" : "None of the Above", 
+					"a" : "a1" 
+				},
+				{ 
+					"sid" : 2,
+					"video" : "https://www.youtube.com/embed/qJz18c6gw8c", 
+					"question" : "The DOJ is", 
+					"a1" : "The arbiter of justice", 
+					"a2" : "A clown show in a banana republic", 
+					"a3" : "Sacred and holy", 
+					"a4" : "All of the above", 
+					"a" : "a2" 
+				}
+			]
+		]
+	},
+	{ 
+		"id" : 4, 
+		"name" : "Brown Bagging in the Street Like an Absolute Boss", 
+		"description" : "",
+		"content" :
+		[
+			[
+				{ 
+					"sid" : 0,
+					"video" : "https://www.youtube.com/embed/scD18plp-dQ", 
+					"question" : "Free speech is", 
+					"a1" : "Essential to a healthy functional society", 
+					"a2" : "Triggering", 
+					"a3" : "Racist", 
+					"a4" : "My pee pee hurts", 
+					"a" : "a1" 
+				},
+				{ 
+					"sid" : 1,
+					"video" : "https://www.youtube.com/embed/a4H9PTM7fw8", 
+					"question" : "Rioting is", 
+					"a1" : "Ok cuz BLM", 
+					"a2" : "Permissible for the left only", 
+					"a3" : "instigated and funded by leftist NGO's", 
+					"a4" : "All of the Above", 
+					"a" : "a4" 
+				},
+				{ 
+					"sid" : 2,
+					"video" : "https://www.youtube.com/embed/A76f2NIFSnQ", 
+					"question" : "Who wants a beer?", 
+					"a1" : "I do!", 
+					"a2" : "#MeToo!", 
+					"a3" : "I'm vegan", 
+					"a4" : "A and B", 
+					"a" : "a3" 
+				}
+			]
+		]
+	}
+]
